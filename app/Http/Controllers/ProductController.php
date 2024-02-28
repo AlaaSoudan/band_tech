@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\ProductResource;
-use Validator;
+
 
 
 class ProductController extends Controller
@@ -43,19 +43,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
     // Define validation rules
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'description' => 'required|string',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'price' => 'required|numeric',
-        // Add more validation rules as needed
-    ]);
-
-    if ($validator->fails()) {
-        return response()->json(['errors' => $validator->errors()], 422);
-        // You can return errors in your preferred format or redirect back with errors
-    }
-
+  
     // Handle image upload
     $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);
