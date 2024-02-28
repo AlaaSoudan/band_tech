@@ -22,11 +22,11 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 Route::apiResource('users', UserController::class);
-Route::get('products', [ProductController::class,'index']);
-Route::post('products', [ProductController::class,'store']);
-Route::get('product/{slug}', [ProductController::class,'showbyslug']);
-Route::put('products/update/{slug}', [ProductController::class ,'update']);
-Route::delete('products/delete/{slug}', [ProductController::class ,'destroy']);
+Route::apiResource('products', ProductController::class);
+
+/* Route::get('product/{slug}', [ProductController::class,'showbyslug']);
+Route::put('product/update/{slug}', [ProductController::class ,'updatebyslug']);
+Route::delete('product/delete/{slug}', [ProductController::class ,'destroy']); */
 
 Route::post('register', [RegisterController::class ,'register']);
 Route::post('login', [LoginController::class, 'login']);

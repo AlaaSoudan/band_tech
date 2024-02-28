@@ -39,6 +39,7 @@ class UserController extends Controller
     // Store user
     $user = new User;
     $user->name = $request->name;
+    $user->username = $request->username;
     $user->email = $request->email;
     $user->avatar = $avatarName;
     $user->type = $type;
@@ -78,6 +79,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return 204;
+        return response()->json(['message' => 'Product deleted successfully',204]);
     }
 }

@@ -32,16 +32,16 @@
 - user CURD API :
 *  index function to show all user [get:http://localhost:8000/api/users]
 * show function to show spacific user    [get:http://localhost:8000/api/users/{id}]
-* store function to save user info before store need create function [post:http://localhost:8000/api/users/{id}]
+* store function to save user info before store need create function [post:http://localhost:8000/api/users]
 * update function to update user info  [Put:http://localhost:8000/api/users]
 * delete user [delete:http://localhost:8000/api/users/{id}]
 
 - product CURD API : 
 * index function to show all products [get:http://localhost:8000/api/products]
-* show function to show spacific product [get:http://localhost:8000/api/api/product/{slug}]
+* show function to show spacific product [get:http://localhost:8000/api/api/producs/{slug}]
 * store function to save product info before store need create function [post:http://localhost:8000/api/products]
-* update function to update product info  [Put:http://localhost:8000/api/products/update/{slug}]
-* delete product [delete:http://localhost:8000/api/products/delete/{slug}]
+* update function to update product info  [Put:http://localhost:8000/api/products/{slug}]
+* delete product [delete:http://localhost:8000/api/products/{slug}]
 here using slug to access to product
 
 

@@ -69,7 +69,7 @@ class ProductController extends Controller
      * Display the specified resource.
      */
    
-     public function showbyslug(string $slug)
+     public function show(string $slug)
      {
          //get by id function
          //Define discount percentages for silver and gold users,we can change variable using by admin panel
@@ -97,7 +97,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $slug)
+    public function update(Request $request ,$slug)
     {
         $product = Product::findOrFail($slug);
         $product->update($request->all());
@@ -111,6 +111,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($slug);
         $product->delete();
-        return response()->json(['message' => 'Product deleted successfully']);
+        return response()->json(['message' => 'Product deleted successfully',204]);
     }
 }
