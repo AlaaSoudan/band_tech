@@ -25,20 +25,23 @@
 
 
 ## Endpoint
-- Register and login API [post:http://localhost:8000/api/register ,
-                        post:http://localhost:8000/api/login]
+- Register and login API :
+* Register [post:http://localhost:8000/api/register]
+* login [post:http://localhost:8000/api/login]
 
-- user CURD API : * index function to show all user [get:http://localhost:8000/api/users]
-                  * show function to show spacific user    [get:http://localhost:8000/api/users/{id}]
-                  * store function to save user info before store need create function [post:http://localhost:8000/api/users/{id}]
-                  * update function to update user info  [Put:http://localhost:8000/api/users]
-                  * delete user [delete:http://localhost:8000/api/users/{id}]
+- user CURD API :
+*  index function to show all user [get:http://localhost:8000/api/users]
+* show function to show spacific user    [get:http://localhost:8000/api/users/{id}]
+* store function to save user info before store need create function [post:http://localhost:8000/api/users/{id}]
+* update function to update user info  [Put:http://localhost:8000/api/users]
+* delete user [delete:http://localhost:8000/api/users/{id}]
 
-- product CURD API : * index function to show all products [get:http://localhost:8000/api/products]
-                    * show function to show spacific product [get:http://localhost:8000/api/api/product/{slug}]
-                    * store function to save product info before store need create function [post:http://localhost:8000/api/products]
-                    * update function to update product info  [Put:http://localhost:8000/api/products/update/{slug}]
-                    * delete product [delete:http://localhost:8000/api/products/delete/{slug}]
+- product CURD API : 
+* index function to show all products [get:http://localhost:8000/api/products]
+* show function to show spacific product [get:http://localhost:8000/api/api/product/{slug}]
+* store function to save product info before store need create function [post:http://localhost:8000/api/products]
+* update function to update product info  [Put:http://localhost:8000/api/products/update/{slug}]
+* delete product [delete:http://localhost:8000/api/products/delete/{slug}]
 here using slug to access to product
 
 
