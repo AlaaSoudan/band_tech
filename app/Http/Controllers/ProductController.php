@@ -20,9 +20,15 @@ class ProductController extends Controller
          // Define discount percentages for silver and gold users,we can change variable using by admin panel
        $silver_percent_off = 0.1; // Example: 10% discount for silver users
        $gold_percent_off = 0.2;   // Example: 20% discount for gold users
+    
+       $user= User::first();
+       Auth::SetUser($user);
+       $user =Auth::user();
+       $userType =$user->type;
        
-        $userType = user::select('type')->get();
-
+       // Check if the user is authenticated
+           // Retrieve the user's type
+  
         $products = Product::all();
         foreach ($products as $product) {
         if($userType = 1){
@@ -45,17 +51,16 @@ class ProductController extends Controller
     // Define validation rules
   
     // Handle image upload
-    $imageName = time().'.'.$request->image->extension();  
+ /*   $imageName = time().'.'.$request->image->extension();  
     $request->image->move(public_path('images'), $imageName);
-
+ */
     // Store product
     $product = new Product;
     $product->name = $request->name;
     $product->description = $request->description;
-    $product->image = $imageName;
+    $product->image = $request->image;
     $product->price = $request->price;
-    $product->avatar = $request->avatar;
-    $product->type = $request->type;
+    $product->slug = $request->slug;
     $product->is_active = $request->is_active;
 
     // Add more fields as needed
@@ -76,7 +81,10 @@ class ProductController extends Controller
        $silver_percent_off = 0.1; // Example: 10% discount for silver users
        $gold_percent_off = 0.2;   // Example: 20% discount for gold users
        
-        $userType = user::select('type')->get();
+       $user= User::first();
+       Auth::SetUser($user);
+       $user =Auth::user();
+       $userType =$user->type;
 
         $product = Product::where('slug', $slug)->firstOrFail();
         
@@ -99,7 +107,7 @@ class ProductController extends Controller
      */
     public function update(Request $request ,$slug)
     {
-        $product = Product::findOrFail($slug);
+        $product = Product::where('slug', $slug)->findOrFail($slug);
         $product->update($request->all());
         return response()->json(['message' => 'Product updated successfully',$product]);
     }
